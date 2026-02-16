@@ -2,22 +2,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 1. Flip Cards Logic --- */
     const projectCards = document.querySelectorAll('.project-card');
+    let activeCard = null;
 
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
-            // Remove flipped class from all other cards
-            projectCards.forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('flipped');
-                }
-            });
+            // Remove flipped class from previously active card
+            if (activeCard && activeCard !== card) {
+                activeCard.classList.remove('flipped');
+            }
             // Add flipped class to current card
             card.classList.add('flipped');
+            activeCard = card;
         });
+    });
 
-        card.addEventListener('mouseleave', () => {
-            card.classList.remove('flipped');
+    // Remove flipped class when moving away from all cards
+    document.addEventListener('mousemove', (e) => {
+        const isOverCard = Array.from(projectCards).some(card => {
+            const rect = card.getBoundingClientRect();
+            return e.clientX >= rect.left && e.clientX <= rect.right &&
+                   e.clientY >= rect.top && e.clientY <= rect.bottom;
         });
+        
+        if (!isOverCard && activeCard) {
+            activeCard.classList.remove('flipped');
+            activeCard = null;
+        }
     });
 
 

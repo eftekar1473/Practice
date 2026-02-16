@@ -439,7 +439,7 @@
                             </svg>
                         </div>
                         <!-- Orbiting Buttons (Positioned via CSS/JS) -->
-                        <div id="skills-orbit" class="absolute inset-0 animate-spin-slow">
+                        <div id="skills-orbit" class="absolute inset-0 animate-spin-slow-reverse">
                             <!-- Buttons will be injected here or styled via CSS class -->
                         </div>
                     </div>
@@ -697,149 +697,132 @@
             <div class="mx-auto max-w-6xl">
 
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    <!-- Left: Contact Form (Takes 7/12 space) -->
-                    <div class="lg:col-span-7 p-4">
-                        <h3 class="font-heading text-3xl font-bold mb-2 text-[#0f172a] dark:text-white">Just say Hello!
-                        </h3>
-                        <p class="text-muted-foreground mb-8">Let me know more about you!</p>
-
-                        <form class="flex flex-col gap-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- BOX 1: Contact Form -->
+                    <div class="md:col-span-2 lg:col-span-2">
+                        <div class="rounded-2xl border border-border bg-card/50 p-8 min-h-[420px] flex flex-col shadow-sm hover:shadow-md transition-all">
+                            <h3 class="font-heading text-xl font-bold mb-6 text-foreground">Send me a Message</h3>
+                            <form class="flex flex-col gap-5 flex-1">
                                 <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-medium text-foreground">Name</label>
                                     <input
-                                        class="flex h-14 w-full rounded-2xl border border-input bg-background/50 px-6 py-3 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                                        id="name" placeholder="First Name" />
+                                        class="flex h-11 w-full rounded-lg border border-input bg-background px-4 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50"
+                                        id="name" placeholder="Your Name" />
                                 </div>
-                                <div class="flex flex-col gap-2">
-                                    <input
-                                        class="flex h-14 w-full rounded-2xl border border-input bg-background/50 px-6 py-3 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                                        id="lastname" placeholder="Last Name" />
-                                </div>
-                            </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-medium text-foreground">Email</label>
                                     <input
-                                        class="flex h-14 w-full rounded-2xl border border-input bg-background/50 px-6 py-3 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                                        id="email" type="email" placeholder="Your Email" />
+                                        class="flex h-11 w-full rounded-lg border border-input bg-background px-4 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50"
+                                        id="email" type="email" placeholder="your.email@example.com" />
                                 </div>
-                                <div class="flex flex-col gap-2">
-                                    <input
-                                        class="flex h-14 w-full rounded-2xl border border-input bg-background/50 px-6 py-3 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                                        id="subject" placeholder="Subject" />
+
+                                <div class="flex flex-col gap-2 flex-1">
+                                    <label class="text-sm font-medium text-foreground">Message</label>
+                                    <textarea
+                                        class="flex flex-1 w-full rounded-lg border border-input bg-background px-4 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+                                        id="message" placeholder="Tell me about your project..."></textarea>
                                 </div>
-                            </div>
 
-                            <div class="flex flex-col gap-2">
-                                <textarea
-                                    class="flex min-h-[180px] w-full rounded-2xl border border-input bg-background/50 px-6 py-4 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 resize-none"
-                                    id="message" placeholder="Your Message"></textarea>
-                            </div>
-
-                            <button
-                                class="inline-flex items-center justify-center rounded-2xl text-sm font-bold bg-[#0a2351] text-white h-14 px-8 py-2 w-full md:w-auto self-start hover:bg-[#0a2351]/90 shadow-lg shadow-blue-900/20 transition-all hover:scale-[1.02]"
-                                type="submit">Submit</button>
-                        </form>
+                                <button
+                                    class="inline-flex items-center justify-center rounded-lg text-sm font-bold bg-primary text-primary-foreground h-11 px-6 py-2 hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] self-start"
+                                    type="submit">Send Message</button>
+                            </form>
+                        </div>
                     </div>
 
-                    <!-- Right: Info & Socials (Takes 5/12 space) -->
-                    <div
-                        class="lg:col-span-5 grid grid-cols-1 md:grid-cols-2 gap-6 h-full content-start mt-10 lg:mt-20">
-                        <!-- Socials Card -->
-                        <div
-                            class="rounded-2xl border border-border bg-card/50 p-6 flex flex-col items-center justify-center shadow-sm hover:shadow-md transition-all">
-                            <div class="grid grid-cols-2 gap-6 w-full max-w-[160px]">
-                                <a href="https://linkedin.com" target="_blank"
-                                    class="aspect-square flex items-center justify-center rounded-xl bg-background hover:bg-secondary/80 transition-all group shadow-sm border border-border/50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-                                        fill="#0a2351" stroke="currentColor" stroke-width="0" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-8 h-8">
-                                        <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                        </path>
+                    <!-- BOX 2: Social Links -->
+                    <div class="md:col-span-1 lg:col-span-1">
+                        <div class="rounded-2xl border border-border bg-card/50 p-8 min-h-[420px] flex flex-col items-center justify-center shadow-sm hover:shadow-md transition-all">
+                            <h3 class="font-heading text-lg font-bold mb-6 text-foreground">Follow Me</h3>
+                            <div class="grid grid-cols-2 gap-4 w-full">
+                                <a href="https://linkedin.com/in/eftekar-hossen-6b088a245" target="_blank"
+                                    class="flex items-center justify-center rounded-lg bg-background/50 hover:bg-primary/10 transition-all p-3 border border-border/50 hover:border-primary/50 group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-5 h-5 text-primary group-hover:scale-110 transition-transform">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                                         <rect width="4" height="12" x="2" y="9"></rect>
                                         <circle cx="4" cy="4" r="2"></circle>
                                     </svg>
                                 </a>
-                                <a href="https://github.com" target="_blank"
-                                    class="aspect-square flex items-center justify-center rounded-xl bg-background hover:bg-secondary/80 transition-all group shadow-sm border border-border/50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-                                        fill="#0a2351" stroke="currentColor" stroke-width="0" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-8 h-8">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
-                                        </path>
+                                <a href="https://github.com/eftekar1473" target="_blank"
+                                    class="flex items-center justify-center rounded-lg bg-background/50 hover:bg-primary/10 transition-all p-3 border border-border/50 hover:border-primary/50 group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-5 h-5 text-primary group-hover:scale-110 transition-transform">
+                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
                                         <path d="M9 18c-4.51 2-5-2-7-2"></path>
                                     </svg>
                                 </a>
                                 <a href="https://facebook.com" target="_blank"
-                                    class="aspect-square flex items-center justify-center rounded-xl bg-background hover:bg-secondary/80 transition-all group shadow-sm border border-border/50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-                                        fill="#0a2351" stroke="currentColor" stroke-width="0" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-8 h-8">
-                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
-                                        </path>
+                                    class="flex items-center justify-center rounded-lg bg-background/50 hover:bg-primary/10 transition-all p-3 border border-border/50 hover:border-primary/50 group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-5 h-5 text-primary group-hover:scale-110 transition-transform">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                                     </svg>
                                 </a>
-                                <a href="mailto:eftekarhossen3223@gmail.com"
-                                    class="aspect-square flex items-center justify-center rounded-xl bg-background hover:bg-secondary/80 transition-all group shadow-sm border border-border/50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-                                        fill="#0a2351" stroke="currentColor" stroke-width="0" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-8 h-8">
-                                        <path
-                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                        </path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                <a href="https://twitter.com" target="_blank"
+                                    class="flex items-center justify-center rounded-lg bg-background/50 hover:bg-primary/10 transition-all p-3 border border-border/50 hover:border-primary/50 group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-5 h-5 text-primary group-hover:scale-110 transition-transform">
+                                        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                                     </svg>
                                 </a>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Info Card -->
-                        <div
-                            class="rounded-2xl border border-border bg-card/50 p-8 flex flex-col justify-center gap-6 shadow-sm hover:shadow-md transition-all">
-                            <div class="flex flex-col gap-6">
-                                <a href="tel:+8801400095352"
-                                    class="flex items-center gap-4 text-muted-foreground hover:text-[#0a2351] transition-colors group">
-                                    <div class="transition-colors text-[#0a2351]">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path
-                                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <span class="font-medium text-foreground text-sm">+880 1400 095352</span>
-                                </a>
-                                <a href="tel:+8801400095352"
-                                    class="flex items-center gap-4 text-muted-foreground hover:text-[#0a2351] transition-colors group">
-                                    <div class="transition-colors text-[#0a2351]">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path
-                                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <span class="font-medium text-foreground text-sm">+880 1400 095352</span>
-                                </a>
-                                <a href="mailto:masum184e@gmail.com"
-                                    class="flex items-center gap-4 text-muted-foreground hover:text-[#0a2351] transition-colors group">
-                                    <div class="transition-colors text-[#0a2351]">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                                        </svg>
-                                    </div>
-                                    <span
-                                        class="font-medium text-foreground text-sm truncate">masum184e@gmail.com</span>
-                                </a>
-                            </div>
+                    <!-- BOX 3: Direct Contact Links -->
+                    <div class="md:col-span-1 lg:col-span-1">
+                        <div class="rounded-2xl border border-border bg-card/50 p-8 min-h-[420px] flex flex-col justify-center gap-4 shadow-sm hover:shadow-md transition-all">
+                            <h3 class="font-heading text-lg font-bold mb-2 text-foreground">Contact Info</h3>
+                            
+                            <a href="https://wa.me/8801400095352" target="_blank"
+                                class="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-primary/10 transition-all border border-border/50 hover:border-primary/50 group">
+                                <div class="text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="currentColor" stroke="none">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 0 0-5.031 1.378c-3.055 2.079-5.006 5.428-5.006 8.999 0 1.339.267 2.645.78 3.864L1.5 23.196l4.318-1.133c1.15.572 2.438.874 3.732.876 5.468 0 9.889-4.418 9.889-9.889 0-2.64-.997-5.121-2.813-6.993-1.817-1.872-4.271-2.905-6.826-2.905" />
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-xs text-muted-foreground">WhatsApp</span>
+                                    <span class="text-sm font-medium text-foreground">+880 1400 095352</span>
+                                </div>
+                            </a>
+
+                            <a href="https://t.me/eftekar1473" target="_blank"
+                                class="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-primary/10 transition-all border border-border/50 hover:border-primary/50 group">
+                                <div class="text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="currentColor" stroke="none">
+                                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.54-.203 1.01.122.84.951z" />
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-xs text-muted-foreground">Telegram</span>
+                                    <span class="text-sm font-medium text-foreground">@eftekar1473</span>
+                                </div>
+                            </a>
+
+                            <a href="mailto:eftekarhossen3223@gmail.com"
+                                class="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-primary/10 transition-all border border-border/50 hover:border-primary/50 group">
+                                <div class="text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                        <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-xs text-muted-foreground">Email</span>
+                                    <span class="text-sm font-medium text-foreground">eftekarhossen3223@gmail.com</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

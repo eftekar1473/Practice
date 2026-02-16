@@ -11,9 +11,50 @@
     height: 320px;
 }
 
+/* 3D Flip Card Utilities */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.project-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
 /* Ensure animate-spin-slow is defined if not already */
 .animate-spin-slow {
     animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+    animation: spin-slow-reverse 20s linear infinite;
 }
 
 @keyframes spin-slow {
@@ -23,6 +64,16 @@
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-slow-reverse {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
     }
 }
 
