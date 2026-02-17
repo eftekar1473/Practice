@@ -1,5 +1,6 @@
 {
-  "framework": null,
+  "framework": "static",
   "buildCommand": null,
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "public": true
 }

@@ -31,124 +31,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    /* --- 2. Skills Circular Layout Logic --- */
-    const skillsData = {
-        "Backend": [
-            { name: "NodeJS", icon: "N" },
-            { name: "Express", icon: "E" },
-            { name: "Python", icon: "Py" },
-            { name: "Java", icon: "J" }
-        ],
-        "Frontend": [
-            { name: "React", icon: "R" },
-            { name: "HTML/CSS", icon: "HC" },
-            { name: "Tailwind", icon: "T" },
-            { name: "JavaScript", icon: "JS" }
-        ],
-        "Database": [
-            { name: "MongoDB", icon: "M" },
-            { name: "MySQL", icon: "SQL" },
-            { name: "PostgreSQL", icon: "PG" }
-        ],
-        "Mobile": [
-            { name: "Flutter", icon: "F" },
-            { name: "React Native", icon: "RN" }
-        ],
-        "AI/ML": [
-            { name: "TensorFlow", icon: "TF" },
-            { name: "PyTorch", icon: "PT" },
-            { name: "Pandas", icon: "Pd" }
-        ],
-        "IoT": [
-            { name: "Arduino", icon: "Ar" },
-            { name: "Raspberry Pi", icon: "RPi" }
-        ],
-        "Other": [
-            { name: "Git", icon: "G" },
-            { name: "Docker", icon: "D" },
-            { name: "AWS", icon: "AWS" }
-        ]
-    };
+    /* --- 2. Skills Grid Layout Logic --- */
+    const allSkills = [
+        { name: "React", icon: "R" },
+        { name: "Next.js", icon: "N" },
+        { name: "HTML5", icon: "H" },
+        { name: "CSS3", icon: "C" },
+        { name: "Tailwind", icon: "T" },
+        { name: "Framer Motion", icon: "F" },
+        { name: "JavaScript", icon: "JS" },
+        { name: "TypeScript", icon: "TS" },
+        { name: "Python", icon: "Py" },
+        { name: "Node.js", icon: "N" },
+        { name: "Express", icon: "E" },
+        { name: "MongoDB", icon: "M" },
+        { name: "PostgreSQL", icon: "PG" },
+        { name: "MySQL", icon: "SQL" },
+        { name: "Docker", icon: "D" },
+        { name: "Git", icon: "G" },
+        { name: "AWS", icon: "AWS" },
+        { name: "Firebase", icon: "FB" }
+    ];
 
-    const orbitContainer = document.getElementById('skills-orbit');
-    if (!orbitContainer) return; // Guard clause
+    const skillsGrid = document.getElementById('skills-grid');
+    if (!skillsGrid) return; // Guard clause
 
-    const contentTitle = document.getElementById('skill-category-title');
-    const contentList = document.getElementById('skill-list');
-    const categories = Object.keys(skillsData);
-    const totalCategories = categories.length;
+    // Render Skills Grid
+    allSkills.forEach(skill => {
+        const skillCard = document.createElement('div');
+        skillCard.className = "tech-card h-[160px] flex flex-col items-center justify-center gap-3 p-4 rounded-xl cursor-pointer group relative overflow-hidden";
 
-    // Updated dimensions based on new HTML (340x340)
-    const containerSize = 340;
-    const center = containerSize / 2; // 170
-    const btnSize = 50;
-    const radius = 135; // Adjusted to fit within 340px container (170 + 135 + 25 = 330 < 340)
-
-    // Render Orbit Buttons
-    categories.forEach((category, index) => {
-        const btn = document.createElement('div');
-        btn.classList.add('skill-orbit-btn');
-        btn.textContent = category; // Full name
-        btn.setAttribute('title', category);
-
-        // Calculate position
-        const angle = (index / totalCategories) * 2 * Math.PI; // radians
-
-
-        const x = Math.cos(angle) * radius + center - (btnSize / 2);
-        const y = Math.sin(angle) * radius + center - (btnSize / 2);
-
-        btn.style.left = `${x}px`;
-        btn.style.top = `${y}px`;
-
-        btn.addEventListener('click', () => {
-            // Update active state
-            document.querySelectorAll('.skill-orbit-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Render Content
-            renderSkills(category);
-        });
-
-        orbitContainer.appendChild(btn);
+        skillCard.innerHTML = `
+            <div class="absolute inset-0 bg-gradient-to-t from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="w-12 h-12 rounded-lg bg-[#0f172a]/80 flex items-center justify-center text-xl font-bold text-cyan-400 border border-white/5 shadow-inner group-hover:scale-110 transition-transform duration-300 z-10">
+                ${skill.icon}
+            </div>
+            <span class="font-medium text-slate-300 text-sm tracking-wide group-hover:text-white transition-colors z-10 text-center">${skill.name}</span>
+        `;
+        skillsGrid.appendChild(skillCard);
     });
-
-    // Initial Render
-    if (categories.length > 0) {
-        // Select first one after a small delay to ensure DOM is ready? No, immediate is fine.
-        const firstBtn = orbitContainer.querySelector('.skill-orbit-btn');
-        if (firstBtn) firstBtn.click();
-    }
-
-    function renderSkills(category) {
-        contentTitle.textContent = category;
-        contentList.innerHTML = ''; // Clear existing
-        const skills = skillsData[category];
-
-        // Simple animation class reset
-        const rightCol = document.getElementById('skills-content');
-        rightCol.classList.remove('animate-fade-in-up');
-        void rightCol.offsetWidth; // Trigger reflow
-        rightCol.classList.add('animate-fade-in-up');
-
-        // Layout: Horizontal row, wrapping if needed, centered
-        contentList.className = "flex flex-wrap justify-center gap-6 w-full";
-
-        skills.forEach(skill => {
-            const skillCard = document.createElement('div');
-            // Use the new .tech-card class defined in extra.css
-            skillCard.className = "tech-card min-w-[120px] h-[140px] flex flex-col items-center justify-center gap-3 p-4 rounded-xl cursor-pointer group relative overflow-hidden";
-
-            skillCard.innerHTML = `
-                <div class="absolute inset-0 bg-gradient-to-t from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="w-12 h-12 rounded-lg bg-[#0f172a]/80 flex items-center justify-center text-2xl font-bold text-cyan-400 border border-white/5 shadow-inner group-hover:scale-110 transition-transform duration-300 z-10">
-                    ${skill.icon}
-                </div>
-                <span class="font-medium text-slate-300 text-sm tracking-wide group-hover:text-white transition-colors z-10">${skill.name}</span>
-            `;
-            contentList.appendChild(skillCard);
-        });
-    }
 
 
     /* --- 3. Show More / Show Less Logic --- */
