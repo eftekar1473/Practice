@@ -1,16 +1,17 @@
 /* Missing Tailwind Utilities */
-.w-[340px] {
+.w-\[340px\] {
     width: 340px;
 }
 
-.h-[340px] {
+.h-\[340px\] {
     height: 340px;
 }
 
-.h-[320px] {
+.h-\[320px\] {
     height: 320px;
 }
 
+<<<<<<< Updated upstream
 /* 3D Flip Card Utilities */
 .perspective-1000 {
     perspective: 1000px;
@@ -46,6 +47,22 @@
 
 .card-back {
     transform: rotateY(180deg);
+=======
+.h-\[140px\] {
+    height: 140px;
+}
+
+.min-w-\[120px\] {
+    min-width: 120px;
+}
+
+.min-h-\[250px\] {
+    min-height: 250px;
+}
+
+.min-h-\[420px\] {
+    min-height: 420px;
+>>>>>>> Stashed changes
 }
 
 /* Ensure animate-spin-slow is defined if not already */
@@ -152,3 +169,49 @@
     transform: scale(1.1);
     z-index: 30;
 }
+<<<<<<< Updated upstream
+=======
+
+/* Missing 3D Transform Classes for Flip Cards */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+/* Flip Card Active State */
+.project-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Social Icon Button Style */
+.social-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--border));
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: all 0.3s ease;
+}
+
+.social-icon-btn:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    border-color: hsl(var(--primary));
+}
+>>>>>>> Stashed changes
